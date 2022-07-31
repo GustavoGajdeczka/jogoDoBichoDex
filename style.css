@@ -25,7 +25,7 @@ main {
   max-width: 425px;
 }
 
-.pokemon_image{
+.bicho_image{
   position: absolute;
   bottom: 55%;
   left: 50%;
@@ -34,7 +34,7 @@ main {
   box-shadow: -3px 4px 0 #888;
 }
 
-.pokemon_data{
+.bicho_data{
   position: absolute;
   font-weight: 600;
   color: #aaa;
@@ -43,7 +43,7 @@ main {
   font-size: clamp(8px, 5vw, 25px);
 }
 
-.pokemon_name{
+.bicho_name{
   color: #3a444d;
   text-transform: capitalize;
 }

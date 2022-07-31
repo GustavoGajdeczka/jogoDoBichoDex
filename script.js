@@ -1,6 +1,6 @@
-const bichoName = document.querySelector(".pokemon_name");
-const bichoNumero = document.querySelector(".pokemon_number");
-const bichoImage = document.querySelector(".pokemon_image");
+const bichoName = document.querySelector(".bicho_name");
+const bichoNumero = document.querySelector(".bicho_number");
+const bichoImage = document.querySelector(".bicho_image");
 
 const form = document.querySelector('.form_input');
 const input = document.querySelector('.input_search');
@@ -10,33 +10,35 @@ const buttonNext = document.querySelector('.btn_next');
 
 const data = {
   bichos: [],
-  searchPokemon: 1
+  searchbicho: 1
 }
 
 window.onload = async () => {
   await obterBichos();
 
-  renderPokemon(data.searchPokemon);
+  renderbicho(data.searchbicho);
 }
 
 form.addEventListener('submit', (event) => {
   event.preventDefault();
-  renderPokemon(input.value.toLowerCase());
+  renderbicho(input.value.toLowerCase());
 });
 
 buttonPrev.addEventListener('click', () => {
-  if (data.searchPokemon > 1) {
-    data.searchPokemon = parseInt(data.searchPokemon) - 1;
-    renderPokemon(data.searchPokemon);
+  if (data.searchbicho > 1) {
+    data.searchbicho = parseInt(data.searchbicho) - 1;
+    renderbicho(data.searchbicho);
   }
 });
 
 buttonNext.addEventListener('click', () => {
-  data.searchPokemon = parseInt(data.searchPokemon) + 1;
-  renderPokemon(data.searchPokemon);
+  if(data.searchbicho < 25){
+    data.searchbicho = parseInt(data.searchbicho) + 1;
+    renderbicho(data.searchbicho);
+  }
 });
 
-const renderPokemon = (bicho) => {
+const renderbicho = (bicho) => {
   if(isNaN(bicho)){
     bichoArray = Object.keys(data.bichos);
     bichoArray.forEach(elemento => {
@@ -44,15 +46,14 @@ const renderPokemon = (bicho) => {
         bichoName.innerHTML = data.bichos[elemento].nome;
         bichoNumero.innerHTML = elemento;
         bichoImage.src = `./assets/bichos/${elemento}.png`;
-        data.searchPokemon = elemento
+        data.searchbicho = elemento
       }
     });
   }else{
-    console.log("data:", data.bichos[bicho]);
     bichoName.innerHTML = data.bichos[bicho].nome;
     bichoNumero.innerHTML = bicho;
     bichoImage.src = `./assets/bichos/${bicho}.png`;
-    data.searchPokemon = bicho;
+    data.searchbicho = bicho;
   }
 } 
 
