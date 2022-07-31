@@ -93,3 +93,11 @@ main {
   box-shadow: inset -4px 4px 0 #222;
   font-size: 0.9rem;
 }
+
+footer {
+  position: fixed;
+  height: 20px;
+  bottom: 0px;
+  left: 0px;
+  margin-bottom: 0px;
+}
