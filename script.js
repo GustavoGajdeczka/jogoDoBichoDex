@@ -26,13 +26,13 @@ form.addEventListener('submit', (event) => {
 
 buttonPrev.addEventListener('click', () => {
   if (data.searchPokemon > 1) {
-    data.searchPokemon -= 1;
+    data.searchPokemon = parseInt(data.searchPokemon) - 1;
     renderPokemon(data.searchPokemon);
   }
 });
 
 buttonNext.addEventListener('click', () => {
-  data.searchPokemon += 1;
+  data.searchPokemon = parseInt(data.searchPokemon) + 1;
   renderPokemon(data.searchPokemon);
 });
 
@@ -48,6 +48,7 @@ const renderPokemon = (bicho) => {
       }
     });
   }else{
+    console.log("data:", data.bichos[bicho]);
     bichoName.innerHTML = data.bichos[bicho].nome;
     bichoNumero.innerHTML = bicho;
     bichoImage.src = `./assets/bichos/${bicho}.png`;
